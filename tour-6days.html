@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Премиум-тур "Дагестан без спешки" - 6 дней | ARCHI TRAVEL Дагестан</title>
+    <meta name="description" content="6-дневный премиум-тур по Дагестану: расширенная программа, уникальные локации, горные пикники, ужины в национальном стиле. Комфортное путешествие без спешки.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { line-height: 1.6; color: #333; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #1a3a2c 0%, #2d5c4a 100%);
+            color: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: white; text-decoration: none; }
+        nav a { color: white; text-decoration: none; margin-left: 2rem; font-weight: 500; }
+        nav a:hover { color: #ffd166; }
+        
+        /* Хлебные крошки */
+        .breadcrumbs { background: #f1f1f1; padding: 12px 0; margin-bottom: 30px; font-size: 0.9rem; }
+        .breadcrumbs a { color: #2d5c4a; text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: #666; }
+        
+        /* Основное содержимое */
+        .tour-detail { background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 40px; }
+        
+        .tour-hero {
+            position: relative; height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .tour-hero h1 { color: white; font-size: 2.8rem; text-align: center; text-shadow: 0 2px 5px rgba(0,0,0,0.5); max-width: 800px; padding: 0 20px; }
+        .price-badge {
+            position: absolute; bottom: -25px; right: 30px;
+            background: #2d5c4a; color: white; padding: 15px 25px;
+            border-radius: 8px; font-size: 1.8rem; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(45, 92, 74, 0.3);
+        }
+        .price-badge span { font-size: 1rem; font-weight: normal; display: block; }
+        
+        .tour-content { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding: 40px; }
+        @media (max-width: 992px) { .tour-content { grid-template-columns: 1fr; } }
+        
+        /* Описание */
+        .tour-description h2 { color: #1a3a2c; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #ffd166; }
+        .tour-description h3 { color: #2d5c4a; margin: 25px 0 15px; }
+        .itinerary .day {
+            background: #f8f9fa; padding: 20px; border-radius: 8px;
+            margin-bottom: 20px; border-left: 4px solid #2d5c4a;
+        }
+        .itinerary ul { list-style-position: inside; padding-left: 10px; }
+        .itinerary li { margin-bottom: 10px; padding-left: 5px; }
+        .included, .not-included { background: #f1f8e9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .not-included { background: #fff3e0; }
+        
+        /* Форма */
+        .booking-card {
+            background: #f8f9fa; padding: 30px; border-radius: 10px;
+            border: 1px solid #e0e0e0; position: sticky; top: 20px;
+        }
+        .booking-card h3 { color: #1a3a2c; margin-bottom: 10px; }
+        .tour-summary { color: #666; margin-bottom: 25px; font-size: 1.1rem; }
+        .booking-form input, .booking-form textarea {
+            width: 100%; padding: 14px; margin-bottom: 15px;
+            border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
+        }
+        .booking-form input:focus, .booking-form textarea:focus {
+            outline: none; border-color: #2d5c4a; box-shadow: 0 0 0 2px rgba(45, 92, 74, 0.2);
+        }
+        .btn-book {
+            background: linear-gradient(135deg, #2d5c4a 0%, #1a3a2c 100%);
+            color: white; border: none; padding: 16px; width: 100%;
+            border-radius: 6px; font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .btn-book:hover {
+            background: linear-gradient(135deg, #1a3a2c 0%, #2d5c4a 100%);
+            transform: translateY(-2px); box-shadow: 0 5px 15px rgba(45, 92, 74, 0.3);
+        }
+        .form-note { font-size: 0.9rem; color: #666; text-align: center; margin-top: 15px; }
+        .contacts-on-page { margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; }
+        .phone-link, .whatsapp-link {
+            display: block; background: #25D366; color: white;
+            text-align: center; padding: 12px; border-radius: 6px;
+            text-decoration: none; margin: 10px 0; font-weight: bold;
+        }
+        .phone-link { background: #2d5c4a; }
+        .phone-link:hover, .whatsapp-link:hover { opacity: 0.9; }
+        
+        /* Подвал */
+        footer { background: #1a3a2c; color: white; text-align: center; padding: 40px 0; margin-top: 50px; }
+        footer a { color: #ffd166; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        
+        @media (max-width: 768px) {
+            .tour-hero h1 { font-size: 2rem; }
+            .price-badge { position: relative; bottom: auto; right: auto; margin: -20px auto 20px; width: fit-content; }
+            .tour-content { padding: 20px; }
+            .header-content { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; display: inline-block; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">ARCHI TRAVEL</a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="index.html#tours">Туры</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="header-contacts">
+                <a href="tel:+79387836660" style="color:white; text-decoration:none;">+7 (938) 783-66-60</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumbs container">
+        <a href="index.html">Главная</a> &gt;
+        <a href="index.html#tours">Туры по продолжительности</a> &gt;
+        <span>Премиум-тур "Дагестан без спешки" (6 дней)</span>
+    </div>
+
+    <main class="container">
+        <div class="tour-detail">
+            <div class="tour-hero">
+                <h1>Премиум-тур "Дагестан без спешки" - 6 дней</h1>
+                <div class="price-badge">52 500 ₽ <span>с человека</span></div>
+            </div>
+
+            <div class="tour-content">
+                <div class="tour-description">
+                    <h2>Описание тура</h2>
+                    <p>Эксклюзивный тур для ценителей комфорта и глубины впечатлений. Расширенная программа 5-дневного тура с дополнительным днем в горах, посещением уникальных локаций, горным пикником "у облаков" и аутентичными ужинами в национальном стиле. Путешествие, где каждая деталь продумана.</p>
+
+                    <h2>Программа по дням</h2>
+                    <div class="itinerary">
+                        <div class="day">
+                            <h3>День 1: Встреча с могуществом каньона</h3>
+                            <ul>
+                                <li><strong>09:00</strong> - Встреча в Махачкале (аэропорт или ж/д вокзал). Переезд на комфортабельном внедорожнике  к Сулакскому каньону.</li>
+                                <li><strong>11:30</strong> - Прибытие на главную смотровую площадку. Фотосессия у одного из самых глубоких каньонов в мире.</li>
+                                <li><strong>13:00</strong> - Обед в кафе с видом на каньон (включен в стоимость).</li>
+                                <li><strong>14:00</strong> - <em>Опционально:</em> Прогулка на катерах по каньону или по Чиркейскому водохранилищу .</li>
+                              <li> <strong>15:00</strong> - Посещение пещеры Нохъо в комплексе с подвесным мостом, протянутым над Сулакским каньоном.</li>
+                                <li><strong>16:00</strong> - Смотровая козья тропа с видом на самую высокую на кавказе платину Чиркей ГЭС.</li>
+                          <li> <strong>17:30</strong> - Ужин с дегустацией Дагестанской кухни.</li>
+                                <li><strong>19:00</strong> - Заселение в гостинице или в гостевом доме.</li>
+                          <li><strong>19:30</strong> - Свободное время.</li>
+                            </ul>
+                        </div>
+                        <div class="day">
+                             <h3>День 2: Величественные вершины и бирюзовая вода.</h3>
+                            <ul>
+                               <li><strong>09:00</strong> - Завтрак.</li>
+                             <li> <strong>10:00</strong> - Выезд к большому коньону.</li>
+                         <li> <strong>11:00</strong> - Живописные Каранайские пещеры.</li>
+  
+                                <li><strong>12:30</strong> - Поднимаемся на пик Гагарина (1920м).</li>
+                                            <li><strong>14:00</strong> - Обед.</li>
+                                <li><strong>15:00</strong> - Проезжаем по самому длинному автодорожному тоннелю на территории России протяженностью 4303м (Гимрынский тоннель).</li>
+                                <li><strong>15:30</strong> - Смотровая Харачи (признана одним из самых крассивейших мест России по мнению National Geographic).</li>
+                                <li><strong>17:30</strong> - Едем в Гуниб.</li>
+                                <li><strong>20:00</strong> - Ужин и заселение в гостевом доме.</li>
+                            </ul>
+                        </div>
+                        <div class="day">
+                            <h3>День 3: Гуниб и его сокровища.</h3>
+                            <ul>
+                               <li><strong>09:00</strong> - Завтрак.</li>
+                             <li> <strong>10:00</strong> - Выезд к аулу-призраку Гамсутль. Пешая прогулка по улицам древнего покинутого селения.</li>
+                         <li> <strong>10:30</strong> - Фотосессия у чохских террас.</li>
+  
+                                <li><strong>14:30</strong> - Обед в национальном стиле в Гунибе.</li>
+                                            <li><strong>15:30</strong> - Экскурсия к уникальному природному объекту — водопаду внутри пещеры (Слтинский водопад).</li>
+                                <li><strong>16:30</strong> - Гунибская ГЭС и башня Андалал ( фотосессия).</li>
+                                <li><strong>17:00</strong> - Встреча заката на точке Айвазовского «Вид, достойный кисти Айвазовского».</li>
+                                <li><strong>19:00</strong> - Ужин в Гунибе.</li>
+                                <li><strong>20:00</strong> - Заселение в гостевом доме.</li>
+                            </ul>
+                        </div>
+                        <div class="day">
+                            <h3>День 4: Аулы и храмы</h3>
+                            <ul>
+                               <li><strong>09:00</strong> - Завтрак. Освобождение номеров.</li>
+                                <li><strong>10:00</strong> - Выдвигаемся в карадахскую теснину.</li>
+                                <li><strong>13:00</strong> - Обед в Гооре.</li>
+                                <li><strong>14:00</strong> - Поднимаемся к старому Гоору и к его сторожевым башням.</li>
+                                <li><strong>16:00</strong> - Выезд в Датунский храм.Древняя хрестианская святыня в горах Дагестана(IX-XI.веков).</li>
+                                <li><strong>17:00</strong> - Перезд в Хунзах по заибскому подъему с красивым закатом.</li>
+                                <li><strong>18:30</strong> - Ужин и заселение в гостинице или в гостевом доме.</li>
+                            </ul>
+                        </div>
+                        <div class="day">
+                            <h3>День 5: Прощание с горами</h3>
+                            <ul>
+                                <li><strong>09:00</strong> - Завтрак. Освобождение номеров.</li>
+                                <li><strong>10:00</strong> - Мастер класс по изготовлению урбеча с возможностью попробовать урбечь прямо с мельницы.</li>
+                                <li><strong>10:30</strong> - Посещение музейного дома Расула Гамзатова.</li>
+                                <li><strong>12:30</strong> - Обед.</li>
+                                <li><strong>13:30</strong> - Едем в каменную чащу.</li>
+                                <li><strong>14:30</strong> - Плато матлас.</li>
+                                <li><strong>16:00</strong> - Водопады "Тобот" и "Итлятляр".</li>
+                                <li><strong>17:00</strong> - Перезд в Дербент (или к месту ночлега).</li>
+                            </ul>
+                        </div>
+                        <div class="day">
+                            <h3>День 6: Дорога к морю</h3>
+                            <ul>
+                                <li><strong>09:00</strong> - Завтрак. Освобождение номеров.</li>
+                                <li><strong>11:00</strong> - Едем на берег Каспийского моря к уникальному объекту — экраноплану "Лунь". Экскурсия вокруг легендарного советского экраноплана, рассказ о его истории и боевом применении.</li>
+                                <li><strong>12:30</strong> - Обед с блюдами дагестанской кухни.</li>
+                                <li><strong>13:30</strong> - Начало экскурсии по цитадели Нарын-Кала  — объекту ЮНЕСКО.</li>
+                                <li><strong>14:30</strong> - Прогулка по старому городу (Магалы): Джума-мечеть (самая древняя в России), девичьи бани, крепостные стены.</li>
+                                <li><strong>16:30</strong> - Свободное время для покупки сувениров и прогулки по набережной.</li>
+                                 <li><strong>18:00</strong> - Трансфер в аэропорт  или на место проживание в Махачкале или в Каспийске.</li>
+ <strong></strong> -                 УВАЖАЕМЫЕ ГОСТИ! ОБРАЩАЕМ ВАШЕ ВНИМАНИЕ: ПРОГРАММА ЭКСКУРСИИ НЕ ИМЕЕТ ЖЕСТКОЙ ПРИВЯЗКИ КО ВРЕМЕНИ. ГИД МОЖЕТ КОРРЕКТИРОВАТЬ ГРАФИК В ЗАВИСИМОСТИ ОТ ПОГОДНЫХ УСЛОВИЙ ИЛИ ДРУГИХ НЕПРЕДВИДЕННЫХ ОБСТОЯТЕЛЬСТВ. ОДНАКО МЫ УВЕРЯЕМ ВАС, ЧТО ВСЕ УКАЗАННЫЕ ЛОКАЦИИ БУДУТ ПОСЕЩЕНЫ В РАМКАХ ТУРА.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2>Что включено в стоимость</h2>
+                    <ul class="included">
+                       <li>✅ Трансфер от/до Махачкалы (аэропорт/вокзал) и все перемещения по маршруту на внедорожнике.</li>
+                        <li>✅ Услуги профессионального гида-сопровождающего (спасателя МЧС).</li>
+                        <li>✅ Проживание в  гостевых домах и в гостиницах (удобства в номере).</li>
+                        <li>✅ Трёхразовое питание.</li>
+                        <li>✅ Все входные билеты по программе (смотровые площадки.)</li>
+                      <li>✅ Катание на катерах по Сулакскому каньону или на водохранилище.</li>
+                    </ul>
+                    <p class="not-included"><strong>Не включено:</strong> Авиа/жд билеты, дополнительные мастер-классы, личные расходы, сувениры, завтрак 1-го дня и ужин 6-го дня.</p>
+                </div>
+
+                <div class="booking-card">
+                    <h3>Забронировать этот тур</h3>
+                    <p class="tour-summary">6 дней, Премиум-тур, 52 500 ₽/чел.</p>
+
+                    <form action="https://formsubmit.co/mamaevarsen01@mail.ru" method="POST" class="booking-form">
+                        <input type="hidden" name="_subject" value="Новая заявка на премиум-тур 'Дагестан без спешки' (6 дней)">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://architravel.github.io/Dagestan/thanks.html">
+                        
+                        <input type="text" name="Имя" placeholder="Ваше имя" required>
+                        <input type="tel" name="Телефон" placeholder="Телефон/WhatsApp" required>
+                        <input type="email" name="Email" placeholder="Электронная почта">
+                        <input type="date" name="Дата тура" required>
+                        <input type="number" name="Количество человек" placeholder="Количество человек" min="1" max="6" required>
+                        <textarea name="Пожелания" placeholder="Ваши пожелания или вопросы" rows="3"></textarea>
+                        
+                        <button type="submit" class="btn-book">Отправить заявку</button>
+                    </form>
+                    
+                    <p class="form-note">Наш менеджер свяжется с вами в течение 2 часа для подтверждения бронирования и обсуждения деталей.</p>
+
+                    <div class="contacts-on-page">
+                        <p><strong>Один звонок — и мы скорректируем маршрут специально для вас. Индивидуальный подход к каждому клиенту. Звоните или пишите, начните планирование отпуска уже сегодня!</strong></p>
+                        <a href="tel:+79387836660" class="phone-link">+7 (938) 783-66-60</a>
+                        <a href="https://wa.me/79387836660" class="whatsapp-link">Написать в WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contacts">
+        <div class="container">
+            <p>© ARCHI TRAVEL, 2026. Туры по Дагестану.</p>
+            <p>Телефон/WhatsApp: <a href="tel:+79387836660">+7 (938) 783-66-60</a></p>
+            <p>Email: <a href="mailto:mamaevarsen01@mail.ru">mamaevarsen01@mail.ru</a></p>
+            <p>Махачкала. Офис компании</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.booking-form')?.addEventListener('submit', function() {
+            alert('Спасибо за заявку на премиум-тур! Наш менеджер свяжется с вами в самое ближайшее время.');
+        });
+    </script>
+</body>
+</html>
