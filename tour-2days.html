@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экспресс-тур "Горные аулы" - 2 дня | ARCHI TRAVEL Дагестан</title>
+    <meta name="description" content="Забронируйте двухдневный тур по Северному Дагестану: Сулакский каньон, аул-призрак Гамсутль, Салтинский водопад. Профессиональные гиды, комфортные внедорожники.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { line-height: 1.6; color: #333; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #1a3a2c 0%, #2d5c4a 100%);
+            color: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: white; text-decoration: none; }
+        nav a { color: white; text-decoration: none; margin-left: 2rem; font-weight: 500; }
+        nav a:hover { color: #ffd166; }
+        
+        /* Хлебные крошки */
+        .breadcrumbs { background: #f1f1f1; padding: 12px 0; margin-bottom: 30px; font-size: 0.9rem; }
+        .breadcrumbs a { color: #2d5c4a; text-decoration: none; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: #666; }
+        
+        /* Блок с фоном ГАМСУТЛЯ для заголовка и цены */
+        .tour-hero {
+            position: relative;
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+                        url('https://avatars.mds.yandex.net/get-altay/998907/2a0000018b674c4b4b6815a5733e2a164059/XXL_height');
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .tour-hero h1 { 
+            color: white; 
+            font-size: 2.8rem; 
+            text-shadow: 0 2px 15px rgba(0,0,0,0.7);
+            max-width: 800px; 
+            padding: 0 20px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        /* Красивый блок с ценой */
+        .price-container {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 15px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            padding: 15px 35px;
+            border-radius: 60px;
+            border: 1px solid rgba(255,215,0,0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            margin-top: 10px;
+        }
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd166;
+            letter-spacing: 1px;
+        }
+        .price-per-person {
+            font-size: 1.1rem;
+            color: white;
+            opacity: 0.9;
+        }
+        .included-badge {
+            background: rgba(255,215,0,0.2);
+            border: 1px solid rgba(255,215,0,0.5);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffd166;
+            letter-spacing: 0.5px;
+        }
+        
+        .tour-content { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding: 40px; }
+        @media (max-width: 992px) { .tour-content { grid-template-columns: 1fr; } }
+        
+        /* Описание */
+        .tour-description h2 { color: #1a3a2c; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #ffd166; }
+        .tour-description h3 { color: #2d5c4a; margin: 25px 0 15px; }
+        .itinerary .day {
+            background: #f8f9fa; padding: 20px; border-radius: 8px;
+            margin-bottom: 20px; border-left: 4px solid #2d5c4a;
+        }
+        .itinerary ul { list-style-position: inside; padding-left: 10px; }
+        .itinerary li { margin-bottom: 10px; padding-left: 5px; }
+        .included, .not-included { background: #f1f8e9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .not-included { background: #fff3e0; }
+        
+        /* Галерея-спойлер с модальным окном */
+        .gallery-spoiler {
+            margin: 30px 0 20px;
+            background: #fff9ef;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #ffe0b5;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery-card {
+            cursor: pointer;
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+        }
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+        }
+        .gallery-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery-card:hover .gallery-card-img {
+            transform: scale(1.02);
+        }
+        .gallery-card-info {
+            padding: 14px 16px 18px;
+        }
+        .gallery-card-info h4 {
+            color: #1a3a2c;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        .gallery-card-info p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .badge-day {
+            display: inline-block;
+            background: #ffd166;
+            color: #1a3a2c;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: white;
+            max-width: 900px;
+            width: 90%;
+            border-radius: 24px;
+            overflow-y: auto;
+            max-height: 85vh;
+            position: relative;
+            animation: fadeInUp 0.3s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .modal-header {
+            background: #1a3a2c;
+            color: white;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 { margin: 0; font-size: 1.5rem; }
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+        .modal-close:hover { transform: scale(1.1); }
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 24px;
+        }
+        .main-modal-img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .thumbnails {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .thumb.active-thumb {
+            border-color: #2d5c4a;
+            transform: scale(1.02);
+        }
+        .location-description {
+            background: #f5f5f0;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #2c3e2f;
+        }
+        
+        /* КРАСНЫЙ ТЕКСТ ПРЕДУПРЕЖДЕНИЯ - ЯРКИЙ И БРОСКИЙ */
+        .warning-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border-left: 6px solid #e74c3c;
+            border-right: 1px solid #ffcccc;
+            border-top: 1px solid #ffcccc;
+            border-bottom: 1px solid #ffcccc;
+            padding: 18px 22px;
+            margin: 25px 0 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.25);
+            transition: all 0.3s ease;
+        }
+        .warning-box:hover {
+            box-shadow: 0 6px 16px rgba(231, 76, 60, 0.35);
+            transform: translateY(-1px);
+        }
+        .warning-text {
+            color: #c0392b;
+            font-weight: 800;
+            font-size: 0.98rem;
+            line-height: 1.55;
+            letter-spacing: 0.3px;
+        }
+        .warning-text strong {
+            color: #e74c3c;
+            font-size: 1.05rem;
+            display: inline-block;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-right: 6px;
+        }
+        .warning-icon {
+            font-size: 1.3rem;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        /* Форма */
+        .booking-card {
+            background: #f8f9fa; padding: 30px; border-radius: 10px;
+            border: 1px solid #e0e0e0; position: sticky; top: 20px;
+        }
+        .booking-card h3 { color: #1a3a2c; margin-bottom: 10px; }
+        .tour-summary { color: #666; margin-bottom: 25px; font-size: 1.1rem; }
+        .booking-form input, .booking-form textarea {
+            width: 100%; padding: 14px; margin-bottom: 15px;
+            border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
+        }
+        .booking-form input:focus, .booking-form textarea:focus {
+            outline: none; border-color: #2d5c4a; box-shadow: 0 0 0 2px rgba(45, 92, 74, 0.2);
+        }
+        .btn-book {
+            background: linear-gradient(135deg, #2d5c4a 0%, #1a3a2c 100%);
+            color: white; border: none; padding: 16px; width: 100%;
+            border-radius: 6px; font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .btn-book:hover {
+            background: linear-gradient(135deg, #1a3a2c 0%, #2d5c4a 100%);
+            transform: translateY(-2px); box-shadow: 0 5px 15px rgba(45, 92, 74, 0.3);
+        }
+        .form-note { font-size: 0.9rem; color: #666; text-align: center; margin-top: 15px; }
+        .contacts-on-page { margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; }
+        .phone-link, .whatsapp-link {
+            display: block; background: #25D366; color: white;
+            text-align: center; padding: 12px; border-radius: 6px;
+            text-decoration: none; margin: 10px 0; font-weight: bold;
+        }
+        .phone-link { background: #2d5c4a; }
+        .phone-link:hover, .whatsapp-link:hover { opacity: 0.9; }
+        
+        footer { background: #1a3a2c; color: white; text-align: center; padding: 40px 0; margin-top: 50px; }
+        footer a { color: #ffd166; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        
+        @media (max-width: 768px) {
+            .tour-hero { height: 350px; }
+            .tour-hero h1 { font-size: 1.6rem; }
+            .price-amount { font-size: 1.6rem; }
+            .price-container { padding: 10px 18px; flex-wrap: wrap; gap: 8px; }
+            .tour-content { padding: 20px; }
+            .header-content { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; display: inline-block; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">ARCHI TRAVEL</a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="index.html#tours">Туры</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="header-contacts">
+                <a href="tel:+79387836660" style="color:white; text-decoration:none;">+7 (938) 783-66-60</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumbs container">
+        <a href="index.html">Главная</a> &gt;
+        <a href="index.html#tours">Туры по продолжительности</a> &gt;
+        <span>Экспресс-тур "Горные аулы" (2 дня)</span>
+    </div>
+
+    <main class="container">
+        <div class="tour-detail">
+            <!-- ФОН ГАМСУТЛЯ за заголовком и ценой -->
+            <div class="tour-hero">
+                <h1>Экспресс-тур "Горные аулы" - 2 дня</h1>
+                <div class="price-container">
+                    <span class="price-amount">18 000 ₽</span>
+                    <span class="price-per-person">с человека</span>
+                    <span class="included-badge">✓ Всё включено</span>
+                </div>
+            </div>
+
+            <div class="tour-content">
+                <div class="tour-description">
+                    <h2>Описание тура</h2>
+                    <p>Интенсивное двухдневное путешествие по самым впечатляющим локациям Северного Дагестана. Идеально для тех, у кого мало времени, но есть большое желание увидеть мощь Сулакского каньона и атмосферу древних горных аулов.</p>
+
+                    <h2>Программа по дням</h2>
+                    <div class="itinerary">
+                        <div class="day">
+                            <h3>День 1: Встреча с могуществом каньона</h3>
+                            <ul>
+                                <li><strong>09:00</strong> - Встреча в Махачкале (аэропорт или ж/д вокзал). Переезд на комфортабельном внедорожнике к Сулакскому каньону.</li>
+                                <li><strong>11:30</strong> - Прибытие на главную смотровую площадку. Фотосессия у одного из самых глубоких каньонов в мире.</li>
+                                <li><strong>13:00</strong> - Обед в кафе с видом на каньон (включен в стоимость).</li>
+                                <li><strong>14:00</strong> - <em>Опционально:</em> Прогулка на катерах по каньону или по Чиркейскому водохранилищу.</li>
+                                <li><strong>15:00</strong> - Посещение пещеры Нохъо в комплексе с подвесным мостом, протянутым над Сулакским каньоном.</li>
+                                <li><strong>16:00</strong> - Смотровая козья тропа с видом на самую высокую на Кавказе плотину Чиркей ГЭС.</li>
+                                <li><strong>17:30</strong> - Ужин с дегустацией дагестанской кухни.</li>
+                                <li><strong>19:00</strong> - Выезд в гостевой дом (в Гунибе или в других гостевых домах).</li>
+                            </ul>
+                        </div>
+                        <div class="day">
+                            <h3>День 2: Водопады и крепости</h3>
+                            <ul>
+                                <li><strong>09:00</strong> - Завтрак.</li>
+                                <li><strong>10:00</strong> - Выезд к аулу-призраку Гамсутль. Пешая прогулка по улицам древнего покинутого селения.</li>
+                                <li><strong>10:30</strong> - Фотосессия у чохских террас.</li>
+                                <li><strong>14:30</strong> - Обед в национальном стиле в Гунибе.</li>
+                                <li><strong>15:30</strong> - Экскурсия к уникальному природному объекту — водопаду внутри пещеры (Салтинский водопад).</li>
+                                <li><strong>16:30</strong> - Трансфер в Махачкалу. По пути — остановки для финальных фотографий на горных серпантинах.</li>
+                                <li><strong>19:00</strong> - Прибытие в Махачкалу. Трансфер в аэропорт, на вокзал или по адресу проживания (Каспийск, Махачкала).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ИНТЕРАКТИВНАЯ ГАЛЕРЕЯ: ФОТО ЛОКАЦИЙ ПО ДНЯМ -->
+                    <div class="gallery-spoiler">
+                        <div style="background: #ffecb3; padding: 12px 20px; font-weight: bold; color:#1a3a2c; border-bottom: 1px solid #ffe0b5;">
+                            📸 Фотогалерея ключевых локаций (нажмите на карточку, чтобы открыть детальные фото с описанием)
+                        </div>
+                        <div class="gallery-grid" id="locationsGrid"></div>
+                    </div>
+
+                    <!-- КРАСНОЕ ВЫДЕЛЯЮЩЕЕСЯ ПРЕДУПРЕЖДЕНИЕ -->
+                    <div class="warning-box">
+                        <div class="warning-text">
+                            <span class="warning-icon">⚠️</span> 
+                            <strong>УВАЖАЕМЫЕ ГОСТИ!</strong> ОБРАЩАЕМ ВАШЕ ВНИМАНИЕ: ПРОГРАММА ЭКСКУРСИИ НЕ ИМЕЕТ ЖЕСТКОЙ ПРИВЯЗКИ КО ВРЕМЕНИ. ГИД МОЖЕТ КОРРЕКТИРОВАТЬ ГРАФИК В ЗАВИСИМОСТИ ОТ ПОГОДНЫХ УСЛОВИЙ ИЛИ ДРУГИХ НЕПРЕДВИДЕННЫХ ОБСТОЯТЕЛЬСТВ. ОДНАКО МЫ УВЕРЯЕМ ВАС, ЧТО ВСЕ УКАЗАННЫЕ ЛОКАЦИИ БУДУТ ПОСЕЩЕНЫ В РАМКАХ ТУРА.
+                        </div>
+                    </div>
+
+                    <h2>Что включено в стоимость</h2>
+                    <ul class="included">
+                        <li>✅ Трансфер от/до Махачкалы (аэропорт/вокзал) и все перемещения по маршруту на внедорожнике.</li>
+                        <li>✅ Услуги профессионального гида-сопровождающего (спасателя МЧС).</li>
+                        <li>✅ Проживание в гостевых домах и в гостиницах (удобства в номере).</li>
+                        <li>✅ Трёхразовое питание.</li>
+                        <li>✅ Все входные билеты по программе (смотровые площадки).</li>
+                        <li>✅ Катание на катерах по Сулакскому каньону или на водохранилище.</li>
+                    </ul>
+                    <p class="not-included"><strong>Не включено:</strong> Авиа/жд билеты, дополнительные мастер-классы, личные расходы, сувениры, завтрак 1-го дня и ужин 2-го дня.</p>
+                </div>
+
+                <div class="booking-card">
+                    <h3>Забронировать этот тур</h3>
+                    <p class="tour-summary">2 дня, Северный Дагестан, 18 000 ₽/чел.</p>
+
+                    <form action="https://formsubmit.co/mamaevarsen01@mail.ru" method="POST" class="booking-form">
+                        <input type="hidden" name="_subject" value="Новая заявка на тур 'Горные аулы' (2 дня)">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://architravel.github.io/Dagestan/thanks.html">
+                        
+                        <input type="text" name="Имя" placeholder="Ваше имя" required>
+                        <input type="tel" name="Телефон" placeholder="Телефон/WhatsApp" required>
+                        <input type="email" name="Email" placeholder="Электронная почта">
+                        <input type="date" name="Дата тура" required>
+                        <input type="number" name="Количество человек" placeholder="Количество человек" min="1" max="10" required>
+                        <textarea name="Пожелания" placeholder="Ваши пожелания или вопросы" rows="3"></textarea>
+                        
+                        <button type="submit" class="btn-book">Отправить заявку</button>
+                    </form>
+                    
+                    <p class="form-note">Наш менеджер свяжется с вами в течение 2 часов для подтверждения бронирования.</p>
+
+                    <div class="contacts-on-page">
+                        <p><strong>Один звонок — и мы скорректируем маршрут специально для вас. Индивидуальный подход к каждому клиенту. Звоните или пишите, начните планирование отпуска уже сегодня!</strong></p>
+                        <a href="tel:+79387836660" class="phone-link">+7 (938) 783-66-60</a>
+                        <a href="https://wa.me/79387836660" class="whatsapp-link">Написать в WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contacts">
+        <div class="container">
+            <p>© ARCHI TRAVEL, 2026. Туры по Дагестану.</p>
+            <p>Телефон/WhatsApp: <a href="tel:+79387836660">+7 (938) 783-66-60</a></p>
+            <p>Email: <a href="mailto:mamaevarsen01@mail.ru">mamaevarsen01@mail.ru</a></p>
+            <p>Махачкала. Офис компании</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для детального просмотра -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Название локации</h3>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-gallery">
+                <img id="modalMainImg" class="main-modal-img" src="" alt="основное фото">
+                <div class="thumbnails" id="thumbnailsContainer"></div>
+                <div class="location-description" id="modalDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =====================================================
+        // ⬇️⬇️⬇️ СЮДА ВСТАВЛЯЙТЕ СВОИ ФОТО ⬇️⬇️⬇️
+        // =====================================================
+        // 
+        // КАК ДОБАВИТЬ СВОИ ФОТО:
+        // 1. Загрузите фото в папку "images" на GitHub
+        // 2. Замените пути в кавычках на свои, например:
+        //    "images/sulak_1.jpg", "images/sulak_2.jpg"
+        // 3. Можно добавить сколько угодно фото в массив images
+        // 4. Описание каждой локации можно менять на своё
+        //
+        // =====================================================
+        
+        const locationsData = [
+            // ========== ДЕНЬ 1 ==========
+            {
+                day: "День 1",
+                title: "Сулакский каньон",
+                preview: "images/sulak_1.jpg",          // ← главное фото (на карточке)
+                images: [                               // ← массив всех фото (откроются в модалке)
+                    "images/sulak_1.jpg",
+                    "images/sulak_2.jpg",
+                    "images/sulak_3.jpg"
+                ],
+                description: "Один из самых глубоких каньонов в мире (глубина до 1920 метров). Грандиозные виды, бирюзовая вода Чиркейского водохранилища и захватывающие дух панорамы."
+            },
+            {
+                day: "День 1",
+                title: "Чиркейская ГЭС и водохранилище",
+                preview: "images/chirkey_1.jpg",
+                images: [
+                    "images/chirkey_1.jpg",
+                    "images/chirkey_2.jpg",
+                    "images/chirkey_3.jpg"
+                ],
+                description: "Самая высокая арочная плотина на Кавказе (233 метра). Живописное водохранилище с изумрудной водой, окруженное скалами."
+            },
+            // ========== ДЕНЬ 2 ==========
+            {
+                day: "День 2",
+                title: "Аул-призрак Гамсутль",
+                preview: "images/gamsutl_1.jpg",
+                images: [
+                    "images/gamsutl_1.jpg",
+                    "images/gamsutl_2.jpg",
+                    "images/gamsutl_3.jpg"
+                ],
+                description: "Один из самых известных аулов-призраков Дагестана, расположенный на склоне горы. Покинутые каменные дома, лабиринты улиц и невероятные виды."
+            },
+            {
+                day: "День 2",
+                title: "Салтинский водопад (подземный)",
+                preview: "images/saltain_1.jpg",
+                images: [
+                    "images/saltain_1.jpg",
+                    "images/saltain_2.jpg",
+                    "images/saltain_3.jpg"
+                ],
+                description: "Уникальный подземный водопад, скрытый в ущелье. Вода с шумом падает сквозь расщелину скалы, создавая волшебную атмосферу."
+            },
+            {
+                day: "День 2",
+                title: "Чохские террасы",
+                preview: "images/choh_1.jpg",
+                images: [
+                    "images/choh_1.jpg",
+                    "images/choh_2.jpg",
+                    "images/choh_3.jpg"
+                ],
+                description: "Древние террасные поля, высеченные в скалах. Уникальный ландшафт и панорамные виды на горные долины."
+            }
+        ];
+
+        // =====================================================
+        // ⬆️⬆️⬆️ ВЫШЕ ВСТАВЛЯЙТЕ СВОИ ФОТО ⬆️⬆️⬆️
+        // =====================================================
+
+        // Функция генерации карточек (НЕ ТРОГАТЬ!)
+        function buildGallery() {
+            const grid = document.getElementById('locationsGrid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            locationsData.forEach((loc, idx) => {
+                const card = document.createElement('div');
+                card.className = 'gallery-card';
+                card.setAttribute('data-index', idx);
+                const imgSrc = loc.preview;
+                card.innerHTML = `
+                    <img class="gallery-card-img" src="${imgSrc}" alt="${loc.title}" onerror="this.src='https://via.placeholder.com/400x250?text=Фото+не+загружено'">
+                    <div class="gallery-card-info">
+                        <span class="badge-day">${loc.day}</span>
+                        <h4>${loc.title}</h4>
+                        <p>${loc.description.substring(0, 85)}${loc.description.length > 85 ? '…' : ''}</p>
+                    </div>
+                `;
+                card.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openModal(idx);
+                });
+                grid.appendChild(card);
+            });
+        }
+
+        let currentLocationIndex = 0;
+        const modal = document.getElementById('locationModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMainImg = document.getElementById('modalMainImg');
+        const thumbnailsContainer = document.getElementById('thumbnailsContainer');
+        const modalDescription = document.getElementById('modalDescription');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function openModal(index) {
+            if(index >= locationsData.length) index = 0;
+            currentLocationIndex = index;
+            const data = locationsData[currentLocationIndex];
+            modalTitle.innerText = `${data.day}: ${data.title}`;
+            modalDescription.innerText = data.description;
+            
+            let imagesArr = data.images.filter(img => img && img.length > 0);
+            if(imagesArr.length === 0) imagesArr = [data.preview];
+            if(imagesArr.length === 0) imagesArr = ['https://via.placeholder.com/800x500?text=Фото+не+загружено'];
+            
+            modalMainImg.src = imagesArr[0];
+            modalMainImg.onerror = () => { modalMainImg.src = 'https://via.placeholder.com/800x500?text=Изображение+недоступно'; };
+            
+            thumbnailsContainer.innerHTML = '';
+            imagesArr.forEach((imgUrl, i) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgUrl;
+                thumb.className = 'thumb';
+                if(i === 0) thumb.classList.add('active-thumb');
+                thumb.onerror = () => { thumb.src = 'https://via.placeholder.com/80x80?text=error'; };
+                thumb.addEventListener('click', () => {
+                    modalMainImg.src = imgUrl;
+                    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active-thumb'));
+                    thumb.classList.add('active-thumb');
+                });
+                thumbnailsContainer.appendChild(thumb);
+            });
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+        
+        window.addEventListener('load', () => {
+            buildGallery();
+        });
+        
+        document.querySelector('.booking-form')?.addEventListener('submit', function(e) {
+            setTimeout(() => {
+                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+            }, 50);
+        });
+    </script>
+</body>
+</html>
